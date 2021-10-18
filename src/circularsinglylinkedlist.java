@@ -31,6 +31,45 @@ public class circularsinglylinkedlist {
          csll.display();
 
     }
+    // insert at the beginning of a linkedlist
+    public void insertFirst(int data){
+        ListNode temp = new ListNode(data);
+
+        if(last == null){
+            temp = last;
+        }else {
+            temp.next = last.next;
+        }
+        temp.next = last;
+        length++;
+
+    }
+    //insert at the end of a linkedlist
+    public void insertLast (int data){
+        ListNode temp = new ListNode(data);
+        if (last == null){
+            last = temp;
+            last.next = last;
+        }else{
+            temp.next= last.next;
+            last.next = temp;
+            last = temp;
+        }
+        length++;
+    }
+    //delete the first node from the linkedlist
+    public ListNode deleteFirst (){
+        ListNode temp = last.next;
+        if(last.next == last){
+            last = null;
+        }else{
+            last.next = temp.next;
+            temp.next = null;
+        }
+        length--;
+        return temp;
+    }
+
     //show the length of a linkedlist
 
     public void display(){
